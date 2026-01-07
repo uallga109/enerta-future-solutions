@@ -8,88 +8,61 @@ import serviceSolar from "@/assets/service-solar.jpg";
 import serviceEv from "@/assets/service-ev.jpg";
 import serviceClimate from "@/assets/service-climate.jpg";
 import serviceEnergy from "@/assets/service-energy.jpg";
-
-const services = [
-  {
-    title: "Instalaciones Eléctricas",
-    description: "Obra nueva, reformas y mantenimiento integral.",
-    icon: Zap,
-    image: serviceElectrical,
-    href: "/servicios/instalaciones-electricas",
-  },
-  {
-    title: "Energías Renovables / Fotovoltaica",
-    description: "Paneles solares y baterías para ahorro energético.",
-    icon: Sun,
-    image: serviceSolar,
-    href: "/servicios/energias-renovables",
-  },
-  {
-    title: "Puntos de Carga para Vehículos Eléctricos",
-    description: "Instalación en hogares, empresas y comunidades.",
-    icon: Car,
-    image: serviceEv,
-    href: "/servicios/puntos-carga-ve",
-  },
-  {
-    title: "Climatización",
-    description: "Aire acondicionado y calefacción eficiente.",
-    icon: Wind,
-    image: serviceClimate,
-    href: "/servicios/climatizacion",
-  },
-  {
-    title: "Gestión Energética y Consultoría",
-    description: "Optimización de consumo y ahorro en factura eléctrica.",
-    icon: BarChart3,
-    image: serviceEnergy,
-    href: "/servicios/gestion-energetica",
-  },
-];
-
-const reasons = [
-  {
-    icon: Shield,
-    title: "Más de 15 años de experiencia",
-    description: "Trayectoria sólida desde 2006, consolidados como Enerta Future desde 2020.",
-  },
-  {
-    icon: Award,
-    title: "Calidad y profesionalidad",
-    description: "Materiales de primera calidad y técnicos cualificados para instalaciones seguras.",
-  },
-  {
-    icon: CheckCircle,
-    title: "Cumplimiento normativo",
-    description: "Todas nuestras instalaciones cumplen con la normativa vigente y certificaciones.",
-  },
-  {
-    icon: Users,
-    title: "Atención personalizada",
-    description: "Consultoría energética y soluciones adaptadas a cada cliente y necesidad.",
-  },
-];
-
-const locations = [
-  "Almería",
-  "Roquetas de Mar",
-  "El Ejido",
-  "Vícar",
-  "Vera",
-  "Adra",
-];
-
+const services = [{
+  title: "Instalaciones Eléctricas",
+  description: "Obra nueva, reformas y mantenimiento integral.",
+  icon: Zap,
+  image: serviceElectrical,
+  href: "/servicios/instalaciones-electricas"
+}, {
+  title: "Energías Renovables / Fotovoltaica",
+  description: "Paneles solares y baterías para ahorro energético.",
+  icon: Sun,
+  image: serviceSolar,
+  href: "/servicios/energias-renovables"
+}, {
+  title: "Puntos de Carga para Vehículos Eléctricos",
+  description: "Instalación en hogares, empresas y comunidades.",
+  icon: Car,
+  image: serviceEv,
+  href: "/servicios/puntos-carga-ve"
+}, {
+  title: "Climatización",
+  description: "Aire acondicionado y calefacción eficiente.",
+  icon: Wind,
+  image: serviceClimate,
+  href: "/servicios/climatizacion"
+}, {
+  title: "Gestión Energética y Consultoría",
+  description: "Optimización de consumo y ahorro en factura eléctrica.",
+  icon: BarChart3,
+  image: serviceEnergy,
+  href: "/servicios/gestion-energetica"
+}];
+const reasons = [{
+  icon: Shield,
+  title: "Más de 15 años de experiencia",
+  description: "Trayectoria sólida desde 2006, consolidados como Enerta Future desde 2020."
+}, {
+  icon: Award,
+  title: "Calidad y profesionalidad",
+  description: "Materiales de primera calidad y técnicos cualificados para instalaciones seguras."
+}, {
+  icon: CheckCircle,
+  title: "Cumplimiento normativo",
+  description: "Todas nuestras instalaciones cumplen con la normativa vigente y certificaciones."
+}, {
+  icon: Users,
+  title: "Atención personalizada",
+  description: "Consultoría energética y soluciones adaptadas a cada cliente y necesidad."
+}];
+const locations = ["Almería", "Roquetas de Mar", "El Ejido", "Vícar", "Vera", "Adra"];
 const Index = () => {
-  return (
-    <Layout>
+  return <Layout>
       {/* Hero Section */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img
-            src={heroImage}
-            alt="Instalación solar profesional"
-            className="w-full h-full object-cover"
-          />
+          <img src={heroImage} alt="Instalación solar profesional" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/40" />
         </div>
         
@@ -125,9 +98,7 @@ const Index = () => {
       <section className="enerta-section bg-secondary/30">
         <div className="enerta-container">
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-4">
-              Nuestros servicios
-            </span>
+            
             <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-4">
               Soluciones energéticas completas
             </h2>
@@ -138,18 +109,11 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div
-                key={service.title}
-                className="enerta-card group overflow-hidden"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
+            {services.map((service, index) => <div key={service.title} className="enerta-card group overflow-hidden" style={{
+            animationDelay: `${index * 100}ms`
+          }}>
                 <div className="relative h-48 -mx-6 -mt-6 mb-6 overflow-hidden">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
+                  <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
                   <div className="absolute bottom-4 left-4">
                     <div className="w-12 h-12 rounded-xl bg-primary/90 flex items-center justify-center">
@@ -169,8 +133,7 @@ const Index = () => {
                     <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                   </Button>
                 </Link>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -180,9 +143,7 @@ const Index = () => {
         <div className="enerta-container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-4">
-                ¿Por qué elegirnos?
-              </span>
+              
               <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-6">
                 Confía en expertos con experiencia real
               </h2>
@@ -192,8 +153,7 @@ const Index = () => {
                 integrales adaptadas a cada cliente.
               </p>
               <div className="space-y-6">
-                {reasons.map((reason) => (
-                  <div key={reason.title} className="flex gap-4">
+                {reasons.map(reason => <div key={reason.title} className="flex gap-4">
                     <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center flex-shrink-0">
                       <reason.icon className="w-6 h-6 text-primary" />
                     </div>
@@ -205,17 +165,12 @@ const Index = () => {
                         {reason.description}
                       </p>
                     </div>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 to-accent rounded-3xl" />
-              <img
-                src={serviceSolar}
-                alt="Instalación profesional"
-                className="relative rounded-2xl shadow-enerta-elevated w-full"
-              />
+              <img src={serviceSolar} alt="Instalación profesional" className="relative rounded-2xl shadow-enerta-elevated w-full" />
             </div>
           </div>
         </div>
@@ -237,15 +192,10 @@ const Index = () => {
           </div>
           
           <div className="flex flex-wrap justify-center gap-4 mb-8">
-            {locations.map((location) => (
-              <div
-                key={location}
-                className="flex items-center gap-2 px-5 py-3 bg-card rounded-full border border-border shadow-sm"
-              >
+            {locations.map(location => <div key={location} className="flex items-center gap-2 px-5 py-3 bg-card rounded-full border border-border shadow-sm">
                 <MapPin className="w-4 h-4 text-primary" />
                 <span className="font-medium text-foreground">{location}</span>
-              </div>
-            ))}
+              </div>)}
             <div className="flex items-center gap-2 px-5 py-3 bg-primary/10 rounded-full border border-primary/20">
               <span className="font-medium text-primary">...y alrededores</span>
             </div>
@@ -257,8 +207,6 @@ const Index = () => {
         </div>
       </section>
 
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default Index;
