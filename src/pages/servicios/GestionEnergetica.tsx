@@ -1,6 +1,6 @@
 import { BarChart3 } from "lucide-react";
 import ServicePage from "@/components/ServicePage";
-import serviceEnergy from "@/assets/service-energy.jpg";
+import heroEnergy from "@/assets/hero-energy.jpg";
 
 const GestionEnergetica = () => {
   return (
@@ -8,8 +8,8 @@ const GestionEnergetica = () => {
       title="Gestión Energética"
       subtitle="Optimización y ahorro"
       description="Analizamos tu consumo eléctrico y te proponemos soluciones para reducir tu factura. Monitorización en tiempo real, consultoría energética y recomendación de sistemas más eficientes."
-      image={serviceEnergy}
-      icon={<BarChart3 className="w-8 h-8 text-primary" />}
+      heroImage={heroEnergy}
+      icon={<BarChart3 className="w-8 h-8 text-primary-foreground" />}
       features={[
         "Auditoría energética",
         "Monitorización en tiempo real",

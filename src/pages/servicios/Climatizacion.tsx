@@ -1,6 +1,6 @@
 import { Wind } from "lucide-react";
 import ServicePage from "@/components/ServicePage";
-import serviceClimate from "@/assets/service-climate.jpg";
+import heroClimate from "@/assets/hero-climate.jpg";
 
 const Climatizacion = () => {
   return (
@@ -8,8 +8,8 @@ const Climatizacion = () => {
       title="Climatización"
       subtitle="Confort térmico"
       description="Instalamos sistemas de aire acondicionado y calefacción eficientes para garantizar el máximo confort en tu hogar o negocio. Apostamos por equipos de bajo consumo y climatización inteligente."
-      image={serviceClimate}
-      icon={<Wind className="w-8 h-8 text-primary" />}
+      heroImage={heroClimate}
+      icon={<Wind className="w-8 h-8 text-primary-foreground" />}
       features={[
         "Aire acondicionado",
         "Calefacción eficiente",

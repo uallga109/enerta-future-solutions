@@ -1,6 +1,6 @@
 import { Zap } from "lucide-react";
 import ServicePage from "@/components/ServicePage";
-import serviceElectrical from "@/assets/service-electrical.jpg";
+import heroElectrical from "@/assets/hero-electrical.jpg";
 
 const InstalacionesElectricas = () => {
   return (
@@ -8,8 +8,8 @@ const InstalacionesElectricas = () => {
       title="Instalaciones Eléctricas"
       subtitle="Electricidad profesional"
       description="Realizamos proyectos eléctricos completos para viviendas, locales comerciales y comunidades. Desde obra nueva hasta reformas y mantenimiento, garantizando seguridad y cumplimiento normativo en cada instalación."
-      image={serviceElectrical}
-      icon={<Zap className="w-8 h-8 text-primary" />}
+      heroImage={heroElectrical}
+      icon={<Zap className="w-8 h-8 text-primary-foreground" />}
       features={[
         "Cuadros eléctricos",
         "Cableado completo",

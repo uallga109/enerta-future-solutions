@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 
@@ -8,7 +8,7 @@ interface ServicePageProps {
   title: string;
   subtitle: string;
   description: string;
-  image: string;
+  heroImage: string;
   icon: ReactNode;
   features: string[];
   subservices: { title: string; description: string }[];
@@ -19,7 +19,7 @@ const ServicePage = ({
   title,
   subtitle,
   description,
-  image,
+  heroImage,
   icon,
   features,
   subservices,
@@ -28,29 +28,24 @@ const ServicePage = ({
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={image} alt={title} className="w-full h-full object-cover opacity-15" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/98 to-background/90" />
+          <img src={heroImage} alt={title} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/40" />
         </div>
         
         <div className="enerta-container relative z-10">
-          <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8">
-            <ArrowLeft className="w-4 h-4" />
-            Volver al inicio
-          </Link>
-          
-          <div className="max-w-3xl">
-            <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
+          <div className="max-w-3xl animate-slide-up">
+            <div className="w-16 h-16 rounded-2xl bg-primary/20 backdrop-blur-sm flex items-center justify-center mb-6">
               {icon}
             </div>
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-4">
+            <span className="inline-block px-4 py-2 rounded-full bg-primary/20 text-primary-foreground font-medium text-sm mb-4 backdrop-blur-sm">
               {subtitle}
             </span>
-            <h1 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
+            <h1 className="font-heading text-4xl sm:text-5xl font-bold text-primary-foreground mb-6">
               {title}
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
+            <p className="text-lg text-primary-foreground/90 leading-relaxed mb-8">
               {description}
             </p>
             <Link to="/contacto">

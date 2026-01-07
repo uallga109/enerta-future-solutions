@@ -257,24 +257,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="enerta-section bg-primary">
-        <div className="enerta-container text-center">
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-primary-foreground mb-4">
-            ¿Listo para dar el paso hacia la eficiencia energética?
-          </h2>
-          <p className="text-primary-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
-            Te asesoramos sin compromiso. Cuéntanos tu proyecto y te ayudaremos a encontrar 
-            la mejor solución, incluyendo gestión de subvenciones.
-          </p>
-          <Link to="/contacto">
-            <Button size="lg" variant="secondary" className="font-semibold text-base px-8">
-              Contactar ahora
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-          </Link>
-        </div>
-      </section>
     </Layout>
   );
 };

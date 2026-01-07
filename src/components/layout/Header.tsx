@@ -27,13 +27,13 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
       <nav className="enerta-container">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
             <img 
               src={logoEnerta} 
               alt="Enerta Future" 
-              className="h-14 w-auto transition-transform group-hover:scale-105"
+              className="h-20 w-auto transition-transform group-hover:scale-105"
             />
           </Link>
 
