@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
-
 interface ServicePageProps {
   title: string;
   subtitle: string;
@@ -11,10 +10,12 @@ interface ServicePageProps {
   heroImage: string;
   icon: ReactNode;
   features: string[];
-  subservices: { title: string; description: string }[];
+  subservices: {
+    title: string;
+    description: string;
+  }[];
   clients: string[];
 }
-
 const ServicePage = ({
   title,
   subtitle,
@@ -23,10 +24,9 @@ const ServicePage = ({
   icon,
   features,
   subservices,
-  clients,
+  clients
 }: ServicePageProps) => {
-  return (
-    <Layout>
+  return <Layout>
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
@@ -36,12 +36,8 @@ const ServicePage = ({
         
         <div className="enerta-container relative z-10">
           <div className="max-w-3xl animate-slide-up">
-            <div className="w-16 h-16 rounded-2xl bg-primary/20 backdrop-blur-sm flex items-center justify-center mb-6">
-              {icon}
-            </div>
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/20 text-primary-foreground font-medium text-sm mb-4 backdrop-blur-sm">
-              {subtitle}
-            </span>
+            
+            
             <h1 className="font-heading text-4xl sm:text-5xl font-bold text-primary-foreground mb-6">
               {title}
             </h1>
@@ -65,12 +61,10 @@ const ServicePage = ({
             Lo que incluye este servicio
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            {features.map((feature) => (
-              <div key={feature} className="flex items-start gap-3 bg-card p-4 rounded-xl border border-border">
+            {features.map(feature => <div key={feature} className="flex items-start gap-3 bg-card p-4 rounded-xl border border-border">
                 <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                 <span className="text-foreground">{feature}</span>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -82,8 +76,7 @@ const ServicePage = ({
             Servicios específicos
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {subservices.map((sub, index) => (
-              <div key={index} className="enerta-card">
+            {subservices.map((sub, index) => <div key={index} className="enerta-card">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                   <span className="font-heading font-bold text-primary">{index + 1}</span>
                 </div>
@@ -93,8 +86,7 @@ const ServicePage = ({
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {sub.description}
                 </p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -107,14 +99,9 @@ const ServicePage = ({
               ¿Para quién es este servicio?
             </h2>
             <div className="flex flex-wrap justify-center gap-3">
-              {clients.map((client) => (
-                <span
-                  key={client}
-                  className="px-4 py-2 rounded-full bg-card border border-border text-foreground font-medium"
-                >
+              {clients.map(client => <span key={client} className="px-4 py-2 rounded-full bg-card border border-border text-foreground font-medium">
                   {client}
-                </span>
-              ))}
+                </span>)}
             </div>
           </div>
         </div>
@@ -137,8 +124,6 @@ const ServicePage = ({
           </Link>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default ServicePage;
