@@ -178,24 +178,6 @@ const PreguntasFrecuentes = () => {
           </div>
         </div>
       </section>
-
-      {/* CTA */}
-      <section className="enerta-section bg-primary">
-        <div className="enerta-container text-center">
-          <h2 className="font-heading text-2xl sm:text-3xl font-bold text-primary-foreground mb-4">
-            ¿No encuentras tu respuesta?
-          </h2>
-          <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-            Contacta con nosotros y resolveremos todas tus dudas de forma personalizada.
-          </p>
-          <a
-            href="/contacto"
-            className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-secondary text-secondary-foreground font-semibold hover:bg-secondary/90 transition-colors"
-          >
-            Contactar
-          </a>
-        </div>
-      </section>
     </Layout>
   );
 };

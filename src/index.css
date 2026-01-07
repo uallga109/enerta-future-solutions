@@ -6,57 +6,57 @@
 
 @layer base {
   :root {
-    /* Enerta Future - Verde muy claro y blanco */
-    --background: 145 30% 98%;
-    --foreground: 150 25% 15%;
+    /* Enerta Future - Colores basados en el logo */
+    --background: 80 40% 98%;
+    --foreground: 80 30% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 150 25% 15%;
+    --card-foreground: 80 30% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 150 25% 15%;
+    --popover-foreground: 80 30% 15%;
 
-    /* Verde energético principal */
-    --primary: 152 55% 38%;
+    /* Verde lima claro del logo */
+    --primary: 78 65% 50%;
     --primary-foreground: 0 0% 100%;
 
-    /* Verde muy claro para fondos secundarios */
-    --secondary: 145 35% 95%;
-    --secondary-foreground: 150 25% 20%;
+    /* Verde más oscuro del logo */
+    --secondary: 78 45% 92%;
+    --secondary-foreground: 80 50% 25%;
 
-    --muted: 145 20% 94%;
-    --muted-foreground: 150 10% 45%;
+    --muted: 78 25% 94%;
+    --muted-foreground: 80 15% 45%;
 
     /* Verde suave para acentos */
-    --accent: 145 40% 90%;
-    --accent-foreground: 152 55% 30%;
+    --accent: 78 50% 88%;
+    --accent-foreground: 80 60% 30%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 145 25% 88%;
-    --input: 145 25% 88%;
-    --ring: 152 55% 38%;
+    --border: 78 30% 88%;
+    --input: 78 30% 88%;
+    --ring: 78 65% 50%;
 
     --radius: 0.75rem;
 
-    /* Custom Enerta tokens */
-    --enerta-green-light: 145 35% 96%;
-    --enerta-green-soft: 145 40% 90%;
-    --enerta-green-main: 152 55% 38%;
-    --enerta-green-dark: 152 60% 25%;
+    /* Custom Enerta tokens - basados en el logo */
+    --enerta-green-light: 78 50% 85%;
+    --enerta-green-soft: 78 55% 75%;
+    --enerta-green-main: 78 65% 50%;
+    --enerta-green-dark: 80 55% 35%;
     --enerta-white: 0 0% 100%;
-    --enerta-gray: 150 10% 45%;
+    --enerta-gray: 80 10% 45%;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(145 35% 96%) 0%, hsl(0 0% 100%) 50%, hsl(145 40% 94%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(145 30% 98%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(152 55% 38%) 0%, hsl(152 60% 45%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(78 50% 96%) 0%, hsl(0 0% 100%) 50%, hsl(78 45% 94%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(78 40% 98%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(78 65% 50%) 0%, hsl(80 55% 35%) 100%);
 
     /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(152 55% 38% / 0.1);
-    --shadow-card: 0 8px 30px -8px hsl(152 55% 38% / 0.12);
-    --shadow-elevated: 0 20px 50px -12px hsl(152 55% 38% / 0.15);
+    --shadow-soft: 0 4px 20px -4px hsl(78 65% 50% / 0.1);
+    --shadow-card: 0 8px 30px -8px hsl(78 65% 50% / 0.12);
+    --shadow-elevated: 0 20px 50px -12px hsl(78 65% 50% / 0.15);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -69,38 +69,38 @@
   }
 
   .dark {
-    --background: 150 25% 8%;
-    --foreground: 145 30% 95%;
+    --background: 80 30% 8%;
+    --foreground: 78 40% 95%;
 
-    --card: 150 25% 10%;
-    --card-foreground: 145 30% 95%;
+    --card: 80 30% 10%;
+    --card-foreground: 78 40% 95%;
 
-    --popover: 150 25% 10%;
-    --popover-foreground: 145 30% 95%;
+    --popover: 80 30% 10%;
+    --popover-foreground: 78 40% 95%;
 
-    --primary: 152 55% 45%;
-    --primary-foreground: 150 25% 8%;
+    --primary: 78 60% 45%;
+    --primary-foreground: 80 30% 8%;
 
-    --secondary: 150 25% 15%;
-    --secondary-foreground: 145 30% 95%;
+    --secondary: 80 30% 15%;
+    --secondary-foreground: 78 40% 95%;
 
-    --muted: 150 25% 15%;
-    --muted-foreground: 145 20% 60%;
+    --muted: 80 30% 15%;
+    --muted-foreground: 78 25% 60%;
 
-    --accent: 150 25% 18%;
-    --accent-foreground: 152 55% 50%;
+    --accent: 80 30% 18%;
+    --accent-foreground: 78 60% 50%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 150 25% 18%;
-    --input: 150 25% 18%;
-    --ring: 152 55% 45%;
+    --border: 80 30% 18%;
+    --input: 80 30% 18%;
+    --ring: 78 60% 45%;
 
-    --enerta-green-light: 150 25% 12%;
-    --enerta-green-soft: 150 25% 18%;
-    --enerta-green-main: 152 55% 45%;
-    --enerta-green-dark: 152 60% 55%;
+    --enerta-green-light: 80 30% 12%;
+    --enerta-green-soft: 80 30% 18%;
+    --enerta-green-main: 78 60% 45%;
+    --enerta-green-dark: 80 55% 55%;
   }
 }
 
