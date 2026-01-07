@@ -1,4 +1,6 @@
-import { CheckCircle, Users, Shield, Award, Leaf, MapPin, Wrench } from "lucide-react";
+import { Link } from "react-router-dom";
+import { CheckCircle, Users, Shield, Award, Leaf, MapPin, Calendar, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import serviceSolar from "@/assets/service-solar.jpg";
 import heroImage from "@/assets/hero-enerta.jpg";
@@ -18,112 +20,141 @@ const workProcess = [
   { step: 5, title: "Soporte continuo", description: "Mantenimiento y atención postventa cuando lo necesites." },
 ];
 
+const timeline = [
+  { year: "2006", title: "Inicio en el sector eléctrico", description: "Comenzamos nuestra trayectoria ofreciendo servicios de instalaciones eléctricas." },
+  { year: "2015", title: "Expansión y crecimiento", description: "Ampliamos nuestra cartera de clientes y servicios en toda la provincia." },
+  { year: "2020", title: "Nace Enerta Future", description: "Nos consolidamos como empresa especializada en energías renovables y movilidad eléctrica." },
+  { year: "Hoy", title: "Referentes en Almería", description: "Más de 15 años de experiencia ofreciendo soluciones integrales." },
+];
+
 const QuienesSomos = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative py-20 lg:py-32 overflow-hidden">
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImage} alt="Equipo Enerta" className="w-full h-full object-cover opacity-15" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/98 to-background/80" />
+          <img src={heroImage} alt="Equipo Enerta" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/40" />
         </div>
         
         <div className="enerta-container relative z-10">
-          <div className="max-w-3xl">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-4">
+          <div className="max-w-3xl animate-slide-up">
+            <span className="inline-block px-4 py-2 rounded-full bg-primary/20 text-primary-foreground font-medium text-sm mb-4 backdrop-blur-sm">
               Nuestra historia
             </span>
-            <h1 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              Quiénes somos
+            <h1 className="font-heading text-4xl sm:text-5xl font-bold text-primary-foreground mb-6">
+              Expertos en instalaciones eléctricas y energías renovables en Almería
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Somos una empresa técnica, profesional y especializada en electricidad, 
-              energías renovables, movilidad eléctrica y eficiencia energética. 
-              Operamos en Almería y provincia con más de 15 años de experiencia en el sector.
+            <p className="text-lg text-primary-foreground/90 leading-relaxed mb-8">
+              Más de 15 años ofreciendo soluciones integrales con profesionalidad, calidad y compromiso.
+            </p>
+            <Link to="/quienes-somos#historia">
+              <Button size="lg" className="font-semibold text-base px-8">
+                Conócenos
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* History / Timeline Section */}
+      <section id="historia" className="enerta-section bg-secondary/30">
+        <div className="enerta-container">
+          <div className="text-center mb-12">
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-4">
+              Nuestra trayectoria
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Desde 2006 en el sector eléctrico, consolidándonos como Enerta Future en 2020. 
+              Cada proyecto refleja nuestra pasión por mejorar, innovar y ofrecer soluciones seguras y eficientes.
+            </p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="relative">
+              {/* Timeline line */}
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/20 hidden md:block" />
+              
+              <div className="space-y-8">
+                {timeline.map((item, index) => (
+                  <div key={item.year} className="relative flex items-start gap-6">
+                    {/* Timeline dot */}
+                    <div className="hidden md:flex w-16 h-16 rounded-full bg-primary flex-shrink-0 items-center justify-center z-10">
+                      <Calendar className="w-6 h-6 text-primary-foreground" />
+                    </div>
+                    
+                    <div className="flex-1 bg-card p-6 rounded-xl border border-border shadow-sm">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="px-3 py-1 bg-primary/10 rounded-full text-primary font-bold text-sm">
+                          {item.year}
+                        </span>
+                        <h3 className="font-heading font-semibold text-foreground">
+                          {item.title}
+                        </h3>
+                      </div>
+                      <p className="text-muted-foreground text-sm">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-12 text-center">
+            <p className="text-muted-foreground italic max-w-2xl mx-auto">
+              "Cada proyecto refleja nuestra pasión por mejorar, innovar y ofrecer soluciones seguras y eficientes."
             </p>
           </div>
         </div>
       </section>
 
-      {/* Identity */}
-      <section className="enerta-section bg-secondary/30">
+      {/* Team Section */}
+      <section className="enerta-section">
         <div className="enerta-container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-6">
-                No somos solo un electricista
-              </h2>
-              <div className="space-y-4 text-muted-foreground leading-relaxed">
-                <p>
-                  <strong className="text-foreground">Enerta Future</strong> es una empresa integral de soluciones 
-                  energéticas. Trabajamos con electricidad, energía solar, movilidad eléctrica y 
-                  eficiencia energética para particulares, comunidades, negocios y espacios públicos.
-                </p>
-                <p>
-                  Nuestra trayectoria comienza en <strong className="text-foreground">2006</strong>, acumulando 
-                  experiencia en instalaciones eléctricas. En <strong className="text-foreground">2020</strong> nos 
-                  consolidamos como Enerta Future, evolucionando hacia las energías renovables y la movilidad 
-                  eléctrica para ofrecer soluciones completas y adaptadas al futuro energético.
-                </p>
-                <p>
-                  Operamos en toda la provincia de <strong className="text-foreground">Almería</strong>: Roquetas de Mar, 
-                  El Ejido, Vícar, Vera, Adra y alrededores. La cercanía nos permite ofrecer un 
-                  servicio local, personalizado y de confianza.
-                </p>
-              </div>
-            </div>
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 to-accent rounded-3xl" />
               <img
                 src={serviceSolar}
-                alt="Instalación profesional"
+                alt="Equipo profesional"
                 className="relative rounded-2xl shadow-enerta-elevated w-full"
               />
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* What we solve */}
-      <section className="enerta-section">
-        <div className="enerta-container">
-          <div className="text-center mb-12">
-            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-4">
-              ¿Qué problemas resolvemos?
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Existimos para facilitarte la vida y quitarte preocupaciones.
-            </p>
-          </div>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="enerta-card text-center">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-6 h-6 text-primary" />
+            <div>
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-6">
+                Nuestro equipo
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Contamos con técnicos cualificados, ingenieros especializados en renovables y 
+                electricistas con amplia experiencia. Apostamos por la formación continua para 
+                estar siempre a la vanguardia del sector.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Nuestro enfoque es cercano y transparente: te asesoramos con claridad, 
+                explicándote cada opción para que tomes la mejor decisión. El cliente no es un número, 
+                es una persona a la que queremos ayudar.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="flex items-center gap-3 p-3 bg-accent/50 rounded-lg">
+                  <CheckCircle className="w-5 h-5 text-primary" />
+                  <span className="text-foreground text-sm font-medium">Técnicos cualificados</span>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-accent/50 rounded-lg">
+                  <CheckCircle className="w-5 h-5 text-primary" />
+                  <span className="text-foreground text-sm font-medium">Formación continua</span>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-accent/50 rounded-lg">
+                  <CheckCircle className="w-5 h-5 text-primary" />
+                  <span className="text-foreground text-sm font-medium">Trato cercano</span>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-accent/50 rounded-lg">
+                  <CheckCircle className="w-5 h-5 text-primary" />
+                  <span className="text-foreground text-sm font-medium">Asesoramiento claro</span>
+                </div>
               </div>
-              <h3 className="font-heading font-semibold text-foreground mb-2">Instalaciones seguras</h3>
-              <p className="text-muted-foreground text-sm">Cumplimos toda la normativa para tu tranquilidad.</p>
-            </div>
-            <div className="enerta-card text-center">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Award className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-heading font-semibold text-foreground mb-2">Ahorro en la factura</h3>
-              <p className="text-muted-foreground text-sm">Te ayudamos a reducir tu gasto energético.</p>
-            </div>
-            <div className="enerta-card text-center">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Leaf className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-heading font-semibold text-foreground mb-2">Transición energética</h3>
-              <p className="text-muted-foreground text-sm">Facilitamos el paso a solar y vehículo eléctrico.</p>
-            </div>
-            <div className="enerta-card text-center">
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <Wrench className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="font-heading font-semibold text-foreground mb-2">Sin complicaciones</h3>
-              <p className="text-muted-foreground text-sm">Gestionamos subvenciones, normativa y trámites.</p>
             </div>
           </div>
         </div>
@@ -151,27 +182,6 @@ const QuienesSomos = () => {
                 <p className="text-muted-foreground text-sm">{value.description}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team */}
-      <section className="enerta-section">
-        <div className="enerta-container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-6">
-              Nuestro equipo
-            </h2>
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              Contamos con técnicos cualificados, ingenieros especializados en renovables y 
-              electricistas con amplia experiencia. Apostamos por la formación continua para 
-              estar siempre a la vanguardia del sector.
-            </p>
-            <p className="text-muted-foreground leading-relaxed">
-              Nuestro enfoque es cercano y transparente: te asesoramos con claridad, 
-              explicándote cada opción para que tomes la mejor decisión. El cliente no es un número, 
-              es una persona a la que queremos ayudar.
-            </p>
           </div>
         </div>
       </section>

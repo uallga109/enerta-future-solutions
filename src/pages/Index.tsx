@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Zap, Sun, Car, Wind, BarChart3, CheckCircle, Shield, Award, Users } from "lucide-react";
+import { ArrowRight, Zap, Sun, Car, Wind, BarChart3, CheckCircle, Shield, Award, Users, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import heroImage from "@/assets/hero-enerta.jpg";
@@ -12,35 +12,35 @@ import serviceEnergy from "@/assets/service-energy.jpg";
 const services = [
   {
     title: "Instalaciones Eléctricas",
-    description: "Proyectos completos para viviendas, locales y comunidades. Obra nueva, reformas y mantenimiento.",
+    description: "Obra nueva, reformas y mantenimiento integral.",
     icon: Zap,
     image: serviceElectrical,
     href: "/servicios/instalaciones-electricas",
   },
   {
-    title: "Energías Renovables",
-    description: "Instalación de paneles solares, baterías y gestión de subvenciones para maximizar tu ahorro.",
+    title: "Energías Renovables / Fotovoltaica",
+    description: "Paneles solares y baterías para ahorro energético.",
     icon: Sun,
     image: serviceSolar,
     href: "/servicios/energias-renovables",
   },
   {
-    title: "Puntos de Carga VE",
-    description: "Cargadores para vehículos eléctricos en viviendas, comunidades y negocios con gestión Plan MOVES.",
+    title: "Puntos de Carga para Vehículos Eléctricos",
+    description: "Instalación en hogares, empresas y comunidades.",
     icon: Car,
     image: serviceEv,
     href: "/servicios/puntos-carga-ve",
   },
   {
     title: "Climatización",
-    description: "Sistemas de aire acondicionado y calefacción eficientes para máximo confort y ahorro.",
+    description: "Aire acondicionado y calefacción eficiente.",
     icon: Wind,
     image: serviceClimate,
     href: "/servicios/climatizacion",
   },
   {
-    title: "Gestión Energética",
-    description: "Optimización del consumo, monitorización y asesoramiento para reducir tu factura eléctrica.",
+    title: "Gestión Energética y Consultoría",
+    description: "Optimización de consumo y ahorro en factura eléctrica.",
     icon: BarChart3,
     image: serviceEnergy,
     href: "/servicios/gestion-energetica",
@@ -70,43 +70,50 @@ const reasons = [
   },
 ];
 
+const locations = [
+  "Almería",
+  "Roquetas de Mar",
+  "El Ejido",
+  "Vícar",
+  "Vera",
+  "Adra",
+];
+
 const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex items-center enerta-gradient-bg overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={heroImage}
             alt="Instalación solar profesional"
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/40" />
         </div>
         
         <div className="enerta-container relative z-10">
           <div className="max-w-3xl animate-slide-up">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">
+            <span className="inline-block px-4 py-2 rounded-full bg-primary/20 text-primary-foreground font-medium text-sm mb-6 backdrop-blur-sm">
               Almería y provincia · Desde 2006
             </span>
-            <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
-              Energía del futuro,{" "}
-              <span className="text-primary">hoy en tu hogar</span>
+            <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6">
+              Soluciones eléctricas y energéticas integrales en Almería
             </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed">
-              Soluciones integrales en electricidad, energías renovables, climatización 
-              y movilidad eléctrica. Profesionalidad, calidad y compromiso con cada proyecto.
+            <p className="text-lg sm:text-xl text-primary-foreground/90 mb-8 leading-relaxed">
+              Más de 15 años ofreciendo instalaciones seguras, sostenibles y eficientes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/contacto">
                 <Button size="lg" className="w-full sm:w-auto font-semibold text-base px-8">
-                  Solicitar presupuesto
+                  Solicita presupuesto
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
-              <Link to="/quienes-somos">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto font-semibold text-base px-8">
-                  Conocer más
+              <Link to="/contacto">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto font-semibold text-base px-8 bg-primary-foreground/10 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/20">
+                  Contáctanos
                 </Button>
               </Link>
             </div>
@@ -211,6 +218,42 @@ const Index = () => {
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Locations Section */}
+      <section className="enerta-section bg-accent/50">
+        <div className="enerta-container">
+          <div className="text-center mb-12">
+            <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
+              <MapPin className="w-8 h-8 text-primary" />
+            </div>
+            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              Áreas de actuación
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Ofrecemos nuestros servicios en toda la provincia de Almería y alrededores.
+            </p>
+          </div>
+          
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            {locations.map((location) => (
+              <div
+                key={location}
+                className="flex items-center gap-2 px-5 py-3 bg-card rounded-full border border-border shadow-sm"
+              >
+                <MapPin className="w-4 h-4 text-primary" />
+                <span className="font-medium text-foreground">{location}</span>
+              </div>
+            ))}
+            <div className="flex items-center gap-2 px-5 py-3 bg-primary/10 rounded-full border border-primary/20">
+              <span className="font-medium text-primary">...y alrededores</span>
+            </div>
+          </div>
+          
+          <p className="text-center text-muted-foreground">
+            La cercanía nos permite ofrecer un trato cercano, respuesta rápida y seguimiento personalizado de cada proyecto.
+          </p>
         </div>
       </section>
 
