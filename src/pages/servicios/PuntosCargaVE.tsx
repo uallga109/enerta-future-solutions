@@ -1,6 +1,6 @@
 import { Car } from "lucide-react";
 import ServicePage from "@/components/ServicePage";
-import serviceEv from "@/assets/service-ev.jpg";
+import heroEv from "@/assets/hero-ev.jpg";
 
 const PuntosCargaVE = () => {
   return (
@@ -8,8 +8,8 @@ const PuntosCargaVE = () => {
       title="Puntos de Carga VE"
       subtitle="Movilidad eléctrica"
       description="Instalamos cargadores para vehículos eléctricos en viviendas, comunidades y negocios. Ofrecemos servicio completo: diseño, instalación, mantenimiento y gestión de ayudas del Plan MOVES."
-      image={serviceEv}
-      icon={<Car className="w-8 h-8 text-primary" />}
+      heroImage={heroEv}
+      icon={<Car className="w-8 h-8 text-primary-foreground" />}
       features={[
         "Cargadores domésticos",
         "Cargadores comunitarios",

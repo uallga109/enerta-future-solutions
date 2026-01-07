@@ -1,6 +1,6 @@
 import { Sun } from "lucide-react";
 import ServicePage from "@/components/ServicePage";
-import serviceSolar from "@/assets/service-solar.jpg";
+import heroSolar from "@/assets/hero-solar.jpg";
 
 const EnergiasRenovables = () => {
   return (
@@ -8,8 +8,8 @@ const EnergiasRenovables = () => {
       title="Energías Renovables"
       subtitle="Fotovoltaica y solar"
       description="Instalamos sistemas de paneles solares residenciales y comerciales para que generes tu propia energía, reduzcas tu factura eléctrica y contribuyas a un futuro más sostenible. Gestionamos subvenciones y beneficios fiscales."
-      image={serviceSolar}
-      icon={<Sun className="w-8 h-8 text-primary" />}
+      heroImage={heroSolar}
+      icon={<Sun className="w-8 h-8 text-primary-foreground" />}
       features={[
         "Paneles solares fotovoltaicos",
         "Inversores de alta eficiencia",
