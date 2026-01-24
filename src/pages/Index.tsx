@@ -14,7 +14,6 @@ import heroSolar from "@/assets/hero-solar.jpg";
 import heroEv from "@/assets/hero-ev.jpg";
 import heroClimate from "@/assets/hero-climate.jpg";
 import mejoradoraBg from "@/assets/mejoradora-bg.png";
-
 const services = [{
   title: "Instalaciones Eléctricas",
   description: "Obra nueva, reformas y mantenimiento integral.",
@@ -46,7 +45,6 @@ const services = [{
   image: serviceEnergy,
   href: "/servicios/gestion-energetica"
 }];
-
 const reasons = [{
   icon: Shield,
   title: "Más de 15 años de experiencia",
@@ -64,7 +62,6 @@ const reasons = [{
   title: "Atención personalizada",
   description: "Consultoría energética y soluciones adaptadas a cada cliente y necesidad."
 }];
-
 const whyChooseUs = [{
   icon: Rocket,
   title: "Proyectos escalables y adaptados a tus necesidades",
@@ -82,22 +79,12 @@ const whyChooseUs = [{
   title: "Implementación ágil y sin complicaciones",
   description: "Gestión integral del proyecto que asegura instalaciones seguras y minimiza interrupciones en tu vida o negocio."
 }];
-
 const locations = ["Almería", "Roquetas de Mar", "El Ejido", "Vícar", "Vera", "Adra"];
 
 // Placeholder images for the carousel - will be replaced later
-const expertImages = [
-  serviceSolar,
-  serviceElectrical,
-  serviceEv,
-  serviceClimate,
-  serviceEnergy,
-  serviceSolar,
-];
-
+const expertImages = [serviceSolar, serviceElectrical, serviceEv, serviceClimate, serviceEnergy, serviceSolar];
 const Index = () => {
-  return (
-    <Layout>
+  return <Layout>
       {/* Hero Section */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
@@ -158,9 +145,7 @@ const Index = () => {
         </div>
         <div className="enerta-container relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-block px-4 py-2 rounded-full bg-primary/20 text-primary-foreground font-medium text-sm mb-6 backdrop-blur-sm">
-              Colaboración estratégica
-            </div>
+            
             <h2 className="font-heading text-3xl sm:text-4xl font-bold text-primary-foreground mb-6">
               Colaboración con Mejoradora
             </h2>
@@ -178,11 +163,7 @@ const Index = () => {
                 Si estás pensando en optimizar tu consumo eléctrico o mejorar tus instalaciones, esta colaboración te permite hacerlo de forma más rentable, sencilla y segura.
               </p>
             </div>
-            <a 
-              href="https://www.mejoradora.com/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
+            <a href="https://www.mejoradora.com/" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="font-semibold">
                 Conocer Mejoradora
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -206,23 +187,13 @@ const Index = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            {services.map((service, index) => (
-              <Link 
-                key={service.title} 
-                to={service.href}
-                className="group"
-              >
-                <div 
-                  className="relative flex items-center gap-6 p-6 rounded-2xl overflow-hidden min-h-[100px] hover:shadow-lg transition-all duration-300"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
+            {services.map((service, index) => <Link key={service.title} to={service.href} className="group">
+                <div className="relative flex items-center gap-6 p-6 rounded-2xl overflow-hidden min-h-[100px] hover:shadow-lg transition-all duration-300" style={{
+              animationDelay: `${index * 100}ms`
+            }}>
                   {/* Background Image */}
                   <div className="absolute inset-0">
-                    <img 
-                      src={service.image} 
-                      alt={service.title} 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                    />
+                    <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-foreground/70 group-hover:bg-foreground/60 transition-colors" />
                   </div>
                   
@@ -249,8 +220,7 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
-              </Link>
-            ))}
+              </Link>)}
           </div>
         </div>
       </section>
@@ -269,8 +239,7 @@ const Index = () => {
                 integrales adaptadas a cada cliente.
               </p>
               <div className="space-y-6">
-                {reasons.map(reason => (
-                  <div key={reason.title} className="flex gap-4">
+                {reasons.map(reason => <div key={reason.title} className="flex gap-4">
                     <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center flex-shrink-0">
                       <reason.icon className="w-6 h-6 text-primary" />
                     </div>
@@ -282,8 +251,7 @@ const Index = () => {
                         {reason.description}
                       </p>
                     </div>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
             <div className="relative">
@@ -310,12 +278,10 @@ const Index = () => {
           </div>
           
           <div className="flex flex-wrap justify-center gap-4 mb-8">
-            {locations.map(location => (
-              <div key={location} className="flex items-center gap-2 px-5 py-3 bg-card rounded-full border border-border shadow-sm">
+            {locations.map(location => <div key={location} className="flex items-center gap-2 px-5 py-3 bg-card rounded-full border border-border shadow-sm">
                 <MapPin className="w-4 h-4 text-primary" />
                 <span className="font-medium text-foreground">{location}</span>
-              </div>
-            ))}
+              </div>)}
             <div className="flex items-center gap-2 px-5 py-3 bg-primary/10 rounded-full border border-primary/20">
               <span className="font-medium text-primary">...y alrededores</span>
             </div>
@@ -323,17 +289,9 @@ const Index = () => {
           
           {/* Google Maps Embed */}
           <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-lg border border-border">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d408958.3989661725!2d-2.4637136!3d36.8381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1704900000000!5m2!1ses!2ses"
-              width="100%"
-              height="400"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Mapa de Almería"
-              className="w-full"
-            />
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d408958.3989661725!2d-2.4637136!3d36.8381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1704900000000!5m2!1ses!2ses" width="100%" height="400" style={{
+            border: 0
+          }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="Mapa de Almería" className="w-full" />
           </div>
           
           <p className="text-center text-muted-foreground mt-6">
@@ -360,11 +318,7 @@ const Index = () => {
           </div>
           
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {whyChooseUs.map((item, index) => (
-              <div 
-                key={item.title}
-                className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-2xl p-6 hover:bg-primary-foreground/15 transition-colors"
-              >
+            {whyChooseUs.map((item, index) => <div key={item.title} className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-2xl p-6 hover:bg-primary-foreground/15 transition-colors">
                 <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-4">
                   <item.icon className="w-6 h-6 text-primary" />
                 </div>
@@ -374,13 +328,10 @@ const Index = () => {
                 <p className="text-primary-foreground/70 text-sm">
                   {item.description}
                 </p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default Index;
