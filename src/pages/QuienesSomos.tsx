@@ -9,42 +9,66 @@ import serviceEv from "@/assets/service-ev.jpg";
 import serviceClimate from "@/assets/service-climate.jpg";
 import serviceEnergy from "@/assets/service-energy.jpg";
 import heroImage from "@/assets/hero-enerta.jpg";
-
-const values = [
-  { icon: Shield, title: "Profesionalidad", description: "Técnicos cualificados y formación continua para ofrecer el mejor servicio." },
-  { icon: Award, title: "Calidad", description: "Materiales de primera y acabados impecables en cada instalación." },
-  { icon: CheckCircle, title: "Compromiso", description: "Cumplimos plazos y trabajamos hasta la satisfacción del cliente." },
-  { icon: Users, title: "Responsabilidad", description: "Asumimos cada proyecto como propio, con garantía y seguimiento." },
-];
-
-const workProcess = [
-  { step: 1, title: "Estudio previo", description: "Analizamos tu situación, necesidades y objetivos." },
-  { step: 2, title: "Propuesta personalizada", description: "Diseñamos la solución óptima para tu caso concreto." },
-  { step: 3, title: "Instalación profesional", description: "Ejecutamos el proyecto con materiales de calidad." },
-  { step: 4, title: "Puesta en marcha", description: "Verificamos el funcionamiento y te explicamos todo." },
-  { step: 5, title: "Soporte continuo", description: "Mantenimiento y atención postventa cuando lo necesites." },
-];
-
-const timeline = [
-  { year: "2006", title: "Inicio en el sector eléctrico", description: "Comenzamos nuestra trayectoria ofreciendo servicios de instalaciones eléctricas." },
-  { year: "2015", title: "Expansión y crecimiento", description: "Ampliamos nuestra cartera de clientes y servicios en toda la provincia." },
-  { year: "2020", title: "Nace Enerta Future", description: "Nos consolidamos como empresa especializada en energías renovables y movilidad eléctrica." },
-  { year: "Hoy", title: "Referentes en Almería", description: "Más de 15 años de experiencia ofreciendo soluciones integrales." },
-];
+const values = [{
+  icon: Shield,
+  title: "Profesionalidad",
+  description: "Técnicos cualificados y formación continua para ofrecer el mejor servicio."
+}, {
+  icon: Award,
+  title: "Calidad",
+  description: "Materiales de primera y acabados impecables en cada instalación."
+}, {
+  icon: CheckCircle,
+  title: "Compromiso",
+  description: "Cumplimos plazos y trabajamos hasta la satisfacción del cliente."
+}, {
+  icon: Users,
+  title: "Responsabilidad",
+  description: "Asumimos cada proyecto como propio, con garantía y seguimiento."
+}];
+const workProcess = [{
+  step: 1,
+  title: "Estudio previo",
+  description: "Analizamos tu situación, necesidades y objetivos."
+}, {
+  step: 2,
+  title: "Propuesta personalizada",
+  description: "Diseñamos la solución óptima para tu caso concreto."
+}, {
+  step: 3,
+  title: "Instalación profesional",
+  description: "Ejecutamos el proyecto con materiales de calidad."
+}, {
+  step: 4,
+  title: "Puesta en marcha",
+  description: "Verificamos el funcionamiento y te explicamos todo."
+}, {
+  step: 5,
+  title: "Soporte continuo",
+  description: "Mantenimiento y atención postventa cuando lo necesites."
+}];
+const timeline = [{
+  year: "2006",
+  title: "Inicio en el sector eléctrico",
+  description: "Comenzamos nuestra trayectoria ofreciendo servicios de instalaciones eléctricas."
+}, {
+  year: "2015",
+  title: "Expansión y crecimiento",
+  description: "Ampliamos nuestra cartera de clientes y servicios en toda la provincia."
+}, {
+  year: "2020",
+  title: "Nace Enerta Future",
+  description: "Nos consolidamos como empresa especializada en energías renovables y movilidad eléctrica."
+}, {
+  year: "Hoy",
+  title: "Referentes en Almería",
+  description: "Más de 15 años de experiencia ofreciendo soluciones integrales."
+}];
 
 // Placeholder images for the carousel - will be replaced later
-const teamImages = [
-  serviceSolar,
-  serviceElectrical,
-  serviceEv,
-  serviceClimate,
-  serviceEnergy,
-  serviceSolar,
-];
-
+const teamImages = [serviceSolar, serviceElectrical, serviceEv, serviceClimate, serviceEnergy, serviceSolar];
 const QuienesSomos = () => {
-  return (
-    <Layout>
+  return <Layout>
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
@@ -54,9 +78,7 @@ const QuienesSomos = () => {
         
         <div className="enerta-container relative z-10">
           <div className="max-w-3xl animate-slide-up">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/20 text-primary-foreground font-medium text-sm mb-4 backdrop-blur-sm">
-              Nuestra historia
-            </span>
+            
             <h1 className="font-heading text-4xl sm:text-5xl font-bold text-primary-foreground mb-6">
               Expertos en instalaciones eléctricas y energías renovables en Almería
             </h1>
@@ -92,8 +114,7 @@ const QuienesSomos = () => {
               <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/20 hidden md:block" />
               
               <div className="space-y-8">
-                {timeline.map((item, index) => (
-                  <div key={item.year} className="relative flex items-start gap-6">
+                {timeline.map((item, index) => <div key={item.year} className="relative flex items-start gap-6">
                     {/* Timeline dot */}
                     <div className="hidden md:flex w-16 h-16 rounded-full bg-primary flex-shrink-0 items-center justify-center z-10">
                       <Calendar className="w-6 h-6 text-primary-foreground" />
@@ -112,8 +133,7 @@ const QuienesSomos = () => {
                         {item.description}
                       </p>
                     </div>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
           </div>
@@ -184,15 +204,13 @@ const QuienesSomos = () => {
           </div>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value) => (
-              <div key={value.title} className="text-center">
+            {values.map(value => <div key={value.title} className="text-center">
                 <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <value.icon className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="font-heading font-semibold text-foreground mb-2">{value.title}</h3>
                 <p className="text-muted-foreground text-sm">{value.description}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -211,8 +229,7 @@ const QuienesSomos = () => {
           
           <div className="max-w-4xl mx-auto">
             <div className="grid gap-6">
-              {workProcess.map((process) => (
-                <div key={process.step} className="flex items-start gap-4 bg-card p-6 rounded-xl border border-border">
+              {workProcess.map(process => <div key={process.step} className="flex items-start gap-4 bg-card p-6 rounded-xl border border-border">
                   <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
                     <span className="font-heading font-bold text-primary-foreground">{process.step}</span>
                   </div>
@@ -220,8 +237,7 @@ const QuienesSomos = () => {
                     <h3 className="font-heading font-semibold text-foreground mb-1">{process.title}</h3>
                     <p className="text-muted-foreground text-sm">{process.description}</p>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </div>
@@ -276,8 +292,6 @@ const QuienesSomos = () => {
           </div>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default QuienesSomos;
