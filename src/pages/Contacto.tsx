@@ -9,9 +9,10 @@ import { Checkbox } from "@/components/ui/checkbox";
 import Layout from "@/components/layout/Layout";
 import { useToast } from "@/hooks/use-toast";
 import serviceSolar from "@/assets/service-solar.jpg";
-
 const Contacto = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [acceptedPrivacy, setAcceptedPrivacy] = useState(false);
   const [formData, setFormData] = useState({
@@ -19,42 +20,43 @@ const Contacto = () => {
     email: "",
     phone: "",
     service: "",
-    message: "",
+    message: ""
   });
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!acceptedPrivacy) {
       toast({
         title: "Error",
         description: "Debes aceptar la política de privacidad para enviar el mensaje.",
-        variant: "destructive",
+        variant: "destructive"
       });
       return;
     }
-    
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
     toast({
       title: "Mensaje enviado",
-      description: "Nos pondremos en contacto contigo lo antes posible.",
+      description: "Nos pondremos en contacto contigo lo antes posible."
     });
-    
-    setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      service: "",
+      message: ""
+    });
     setAcceptedPrivacy(false);
     setIsSubmitting(false);
   };
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
   };
-
-  return (
-    <Layout>
+  return <Layout>
       {/* Hero with background image */}
       <section className="relative enerta-section overflow-hidden">
         <div className="absolute inset-0">
@@ -63,9 +65,7 @@ const Contacto = () => {
         </div>
         <div className="enerta-container relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/20 text-primary-foreground font-medium text-sm mb-4 backdrop-blur-sm">
-              Estamos aquí para ayudarte
-            </span>
+            
             <h1 className="font-heading text-4xl sm:text-5xl font-bold text-primary-foreground mb-6">
               Contacto
             </h1>
@@ -158,50 +158,22 @@ const Contacto = () => {
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="name">Nombre completo *</Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Tu nombre"
-                        required
-                      />
+                      <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder="Tu nombre" required />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">Email *</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="tu@email.com"
-                        required
-                      />
+                      <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="tu@email.com" required />
                     </div>
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="phone">Teléfono</Label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="600 000 000"
-                      />
+                      <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="600 000 000" />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="service">Servicio de interés</Label>
-                      <select
-                        id="service"
-                        name="service"
-                        value={formData.service}
-                        onChange={handleChange}
-                        className="w-full h-10 px-3 rounded-md border border-input bg-background text-foreground"
-                      >
+                      <select id="service" name="service" value={formData.service} onChange={handleChange} className="w-full h-10 px-3 rounded-md border border-input bg-background text-foreground">
                         <option value="">Seleccionar servicio</option>
                         <option value="electricidad">Instalaciones Eléctricas</option>
                         <option value="solar">Energías Renovables</option>
@@ -215,41 +187,22 @@ const Contacto = () => {
 
                   <div className="space-y-2">
                     <Label htmlFor="message">Mensaje *</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Cuéntanos sobre tu proyecto o consulta..."
-                      rows={5}
-                      required
-                    />
+                    <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Cuéntanos sobre tu proyecto o consulta..." rows={5} required />
                   </div>
 
                   {/* Privacy checkbox */}
                   <div className="flex items-start space-x-3">
-                    <Checkbox
-                      id="privacy"
-                      checked={acceptedPrivacy}
-                      onCheckedChange={(checked) => setAcceptedPrivacy(checked === true)}
-                    />
-                    <label
-                      htmlFor="privacy"
-                      className="text-sm text-muted-foreground leading-relaxed cursor-pointer"
-                    >
+                    <Checkbox id="privacy" checked={acceptedPrivacy} onCheckedChange={checked => setAcceptedPrivacy(checked === true)} />
+                    <label htmlFor="privacy" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
                       He leído y acepto la <Link to="/politica-privacidad" className="text-primary hover:underline">política de privacidad</Link> *
                     </label>
                   </div>
 
                   <Button type="submit" size="lg" className="w-full font-semibold" disabled={isSubmitting}>
-                    {isSubmitting ? (
-                      "Enviando..."
-                    ) : (
-                      <>
+                    {isSubmitting ? "Enviando..." : <>
                         Enviar mensaje
                         <Send className="ml-2 w-5 h-5" />
-                      </>
-                    )}
+                      </>}
                   </Button>
                 </form>
               </div>
@@ -265,11 +218,7 @@ const Contacto = () => {
                 <p className="text-muted-foreground text-sm mb-4">
                   Contacta con nuestro equipo por WhatsApp y recibe una primera orientación técnica sobre tu proyecto.
                 </p>
-                <a
-                  href="https://wa.me/34639089786?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="https://wa.me/34639089786?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" rel="noopener noreferrer">
                   <Button className="font-semibold">
                     <MessageCircle className="w-5 h-5 mr-2" />
                     Contactar por WhatsApp
@@ -280,8 +229,6 @@ const Contacto = () => {
           </div>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default Contacto;
