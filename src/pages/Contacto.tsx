@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import Layout from "@/components/layout/Layout";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import bannerContacto from "@/assets/banner-contacto.jpeg";
 const Contacto = () => {
   const {
@@ -34,21 +35,41 @@ const Contacto = () => {
     }
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    toast({
-      title: "Mensaje enviado",
-      description: "Nos pondremos en contacto contigo lo antes posible."
-    });
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      service: "",
-      message: ""
-    });
-    setAcceptedPrivacy(false);
-    setIsSubmitting(false);
+    try {
+      const { data, error } = await supabase.functions.invoke("send-contact-email", {
+        body: {
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim() || undefined,
+          service: formData.service || undefined,
+          message: formData.message.trim(),
+        },
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Mensaje enviado",
+        description: "Nos pondremos en contacto contigo lo antes posible."
+      });
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        message: ""
+      });
+      setAcceptedPrivacy(false);
+    } catch (error) {
+      console.error("Error sending contact form:", error);
+      toast({
+        title: "Error al enviar",
+        description: "Ha ocurrido un error. Por favor, inténtalo de nuevo o contacta por teléfono.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData(prev => ({
